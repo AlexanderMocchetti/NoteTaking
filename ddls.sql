@@ -9,10 +9,12 @@ CREATE TABLE users(
 CREATE TABLE notes(
     id INT PRIMARY KEY AUTO_INCREMENT,
     id_user INT NOT NULL,
+    id_categ INT,
     title VARCHAR(255) NOT NULL,
     content TEXT,
     created_at TIMESTAMP DEFAULT CURRENT_TIMESTAMP,
-    FOREIGN KEY (id_user) REFERENCES users(id)
+    FOREIGN KEY (id_user) REFERENCES users(id),
+    FOREIGN KEY (id_categ) REFERENCES categories(id)
 );
 
 CREATE TABLE folders(
@@ -35,10 +37,3 @@ CREATE TABLE note_folder(
     FOREIGN KEY (id_note) REFERENCES notes(id),
     FOREIGN KEY (id_folder) REFERENCES folders(id)
 );
-
-CREATE TABLE note_category(
-    id_note INT NOT NULL,
-    id_category INT NOT NULL,
-    FOREIGN KEY (id_note) REFERENCES notes(id),
-    FOREIGN KEY (id_category) REFERENCES categories(id)
-)
