@@ -1,4 +1,3 @@
--- Active: 1701864337706@@localhost@3306@note
 CREATE TABLE users(
     id INT PRIMARY KEY AUTO_INCREMENT,
     email VARCHAR(150) NOT NULL UNIQUE,
